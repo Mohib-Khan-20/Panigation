@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style2.css">
+    <script src="index.js"></script>
+    <title>Panigation</title>
+</head>
+<body>
+    <div class="input-1">
+        <input type="text" placeholder="Enter 5 or 10" id="input-1" >
+    </div>
+    <div class="panigation-container" >
+        <div class="arrow-prev" onclick="next(-1)">&lt;</div>
+        <div class="panigation-1" id="panigation1" onclick="click1()">1</div>
+        <div class="panigation-1" id="panigation2" onclick="click2()">2</div>
+        <div class="panigation-1" id="panigation3" onclick="click3()">3</div>
+        <div class="panigation-1" id="panigation4" onclick="click4()">4</div>
+        <div class="panigation-1" id="panigation5" onclick="click5()">5</div>
+        <div class="arrow-next" id="special" onclick="next(1)">&gt;</div>
+    </div>
+    
+    <div class="panigation-container2">
+        <div class="arrow-prev1" onclick="next1(-1)">&lt;</div>
+        <div class="panigation-2" id="pani1" onclick="cli1()">1</div>
+        <div class="panigation-2" id="pani2" onclick="cli2()">2</div>
+        <div class="panigation-2" id="pani3" onclick="cli3()">3</div>
+        <div class="panigation-2" id="pani4" onclick="cli4()">4</div>
+        <div class="panigation-2" id="pani5" onclick="cli5()">5</div>
+        <div class="panigation-2" id="pani6" onclick="cli6()">6</div>
+        <div class="panigation-2" id="pani7" onclick="cli7()">7</div>
+        <div class="panigation-2" id="pani8" onclick="cli8()">8</div>
+        <div class="panigation-2" id="pani9" onclick="cli9()">9</div>
+        <div class="panigation-2" id="pani10" onclick="cli10()">10</div>
+        <div class="arrow-next1" id="special1" onclick="next1(1)" >&gt;</div>
+    </div>
+
+     <script>
+        function click1(){
+            let panigation1= document.getElementById("panigation1");
+            panigation1.style.cssText += " background-color: rgba(185, 185, 185, 0.493);"
+            panigation2.style.cssText += "background-color:white"
+            panigation3.style.cssText += "background-color:white"
+            panigation4.style.cssText += "background-color:white"
+            panigation5.style.cssText += "background-color:white"
+        }
+
+        function click2(){
+            let panigation2= document.getElementById("panigation2");
+            panigation2.style.cssText += " background-color: rgba(185, 185, 185, 0.493);"
+            panigation1.style.cssText += "background-color:white"
+            panigation3.style.cssText += "background-color:white"
+            panigation4.style.cssText += "background-color:white"
+            panigation5.style.cssText += "background-color:white"
+        }
+        function click3(){
+            let panigation3= document.getElementById("panigation3");
+            panigation3.style.cssText += " background-color: rgba(185, 185, 185, 0.493);"
+            panigation1.style.cssText += "background-color:white"
+            panigation2.style.cssText += "background-color:white"
+            panigation4.style.cssText += "background-color:white"
+            panigation5.style.cssText += "background-color:white"
+        }
+        function click4(){
+            let panigation4= document.getElementById("panigation4");
+            panigation4.style.cssText += " background-color: rgba(185, 185, 185, 0.493);"
+            panigation1.style.cssText += "background-color:white"
+            panigation2.style.cssText += "background-color:white"
+            panigation3.style.cssText += "background-color:white"
+            panigation5.style.cssText += "background-color:white"
+        }
+        function click5(){
+            let panigation5= document.getElementById("panigation5");
+            panigation5.style.cssText += " background-color: rgba(185, 185, 185, 0.493);"
+            panigation1.style.cssText += "background-color:white"
+            panigation2.style.cssText += "background-color:white"
+            panigation3.style.cssText += "background-color:white"
+            panigation4.style.cssText += "background-color:white"
+        }
+
+        var flag=0
+
+        function next(x){
+            flag= flag+ x
+            slideshow(flag)
+        }
+
+       function slideshow(num){
+        let a = document.getElementsByClassName("panigation-1");
+        if(num==a.length){
+            flag=0
+            num=0
+        }
+        if(num<0){
+            flag=a.length-1
+            num=a.length-1
+            
+        }
+
+
+        for (let y of a){
+            y.style.cssText +=" background-color: white;"
+        }
+        a[num].style.cssText  += " background-color: rgba(185, 185, 185, 0.493);"
+       }
+       slideshow(flag)
+
+       let b = document.querySelector('.panigation-container'); // Use querySelector to select the first matching element
+       let c = document.querySelector('.panigation-container2'); // Use querySelector to select the first matching element
+       let input = document.getElementById("input-1");
+
+    input.addEventListener("input", () => { // Corrected event name
+        if (input.value == 5) {
+            b.style.display = "block"; // Set the display property to "none"
+        }
+       else if(input.value==10){
+        c.style.display = "block";
+       }
+       else if(input.value==0){
+        c.style.display = "none";
+        b.style.display = "none"
+       }
+       
+       
+    });
+
+
+      
+    </script> 
+
+   
+</body>
+</html>
+
+
